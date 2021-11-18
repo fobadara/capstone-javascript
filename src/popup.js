@@ -42,3 +42,26 @@ const getLike = (id, none) => {
     }
   });
 }
+
+const loadLike = (id, node) => {
+  console.log(node);
+  fetch("")
+  .then(response => response.json())
+  .then(json => {
+    let bool = false
+    let idx = 0;
+    let likenum = 0;
+    json.forEach((item, i) => {
+      if(item.item_id ===id) {
+        bool = true;
+        idx = i;
+        likenum = item.likes;
+      }
+    })
+    if(bool){
+      node.textContent = `like ${likenum}`;
+    }else if (bool == false){
+      node.textContent = `like 0`;
+    }
+  })
+}
