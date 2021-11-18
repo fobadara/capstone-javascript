@@ -1,0 +1,35 @@
+.heart-icon:hover {
+  cursor: pointer;
+}
+
+#items {
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.item-img img {
+  width: 100%;
+  height: auto;
+}
+
+.item-like:hover {
+  cursor: pointer;
+}
+
+.show {
+  border-radius: 20px;
+  display: sticky;
+  top: 5%;
+  left: 30%;
+  width: 70vw;
+  height: 90vh;
+  background-color: white;
+}
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  padding-top: 20px;
+  background-color: grey;
+}
