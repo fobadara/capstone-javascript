@@ -38,31 +38,24 @@ const uploadComment = (obj) => {
     .then((response) => response.json())
     .then(() => {
     });
-};
+}; // checked
 
 const loadPopupCommentPage = (itemId, popupNode) => {
-  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${itemId}`)
+  fetch('https://api.europeana.eu/record/v2/search.json')
     .then((response) => response.json())
     .then((json) => {
-      const meal = json.meals[0];
-      console.log(meal);
+      const { items } = json;
+      console.log(items);
       const popupHtml = `
             <div class="container">
             <i class="fas fa-times fa-2x" id="go-back"></i>
                 <div id="img-comment" class="img-comment">
-                <img src="${meal.strMealThumb}" alt="meal-img">
-                <h5>${meal.strMeal}</h5>
+                <img src="${items[itemId].edmPreview[0]}" alt="meal-img">
+                <h5>${items[itemId].title[0]}</h5>
                 </div>
                 <div id="info-item-comment" class="item-info">
-                <div class="ingredient">
-                <h5>Ingredient <i class="fas fa-arrow-down"></i></h5>
-                <ul>
-                <li>${meal.strIngredient1}</li>
-                <li>${meal.strIngredient2}</li>
-                <li>${meal.strIngredient3}</li>
-                <li>${meal.strIngredient4}</li>
-                <li>${meal.strIngredient5}</li>
-                </ul>
+                <div class="details">
+                  // <p>${items[itemId].</p>
                 </div>
                 <div class="instructions"> 
                 <h5>Instruction <i class="fas fa-note"></i></h5>

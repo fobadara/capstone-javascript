@@ -8,7 +8,7 @@ import {
   listenToEvent, display, count, displayNumber,
 } from './use.js';
 
-import { callApi } from './api.js';
+import { callApi } from './main-api.js';
 
 const baseUrl = 'https://api.europeana.eu/record/v2/search.json';
 const wsKey = '?wskey=wkithninscen';

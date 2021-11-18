@@ -13,12 +13,12 @@ const displayNumber = (number, root, items) => {
 };
 
 const display = (root, iterable, displayNum, count, numLi) => {
-  // console.log(root)
+  console.log(iterable)
   const fragment = new DocumentFragment();
   for (let i = 0; i < iterable.length; i += 1) {
     if (root.id !== 'search') {
       const div = document.createElement('div');
-      div.id = `card${i}`;
+      div.id = `${i}`;
       div.className = 'card';
       const shadow = document.createElement('div');
       shadow.id = `shadow${i}`;
