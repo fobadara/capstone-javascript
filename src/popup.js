@@ -20,7 +20,7 @@ response.json().then((json) => {
 
 const getLike = (id, none) => {
   console.log(node);
-  fetch("")
+  fetch("https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/K5LEyqREMBDZLL96ZFuw/likes")
   .then(response => response.json())
   .then(json => {
     let bool = false;
@@ -45,7 +45,7 @@ const getLike = (id, none) => {
 
 const loadLike = (id, node) => {
   console.log(node);
-  fetch("")
+  fetch("https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/K5LEyqREMBDZLL96ZFuw/likes")
   .then(response => response.json())
   .then(json => {
     let bool = false
@@ -66,8 +66,8 @@ const loadLike = (id, node) => {
   })
 }
 
-const getFood = async () => {
-  const response = await fetch ("");
+const getCountries = async () => {
+  const response = await fetch ("https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/K5LEyqREMBDZLL96ZFuw/likes");
   response.json().then((json) => {
     let itemArr = json.meals;
     let itemHtml = '';
@@ -108,4 +108,4 @@ const getFood = async () => {
   })
 }
 
-getFood();
+getCountries();
