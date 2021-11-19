@@ -38,31 +38,27 @@ const uploadComment = (obj) => {
     .then((response) => response.json())
     .then(() => {
     });
-}; // checked
+};
 
-const loadPopupCommentPage = (itemId, popupNode) => {
-  fetch('https://api.europeana.eu/record/v2/search.json')
-    .then((response) => response.json())
+const loadPopupCommentPage = async (itemId, popupNode) => {
+  await fetch(`https://api.europeana.eu/record/v2/search.json&query=africa`, { mode: 'no-cors', })
+    .then((response) => response.text())
     .then((json) => {
       const { items } = json;
+      console.log('aaa')
       console.log(items);
       const popupHtml = `
             <div class="container">
             <i class="fas fa-times fa-2x" id="go-back"></i>
                 <div id="img-comment" class="img-comment">
                 <img src="${items[itemId].edmPreview[0]}" alt="meal-img">
-                <h5>${items[itemId].title[0]}</h5>
+                <h5>${items[itemId+].title[0]}</h5>
                 </div>
                 <div id="info-item-comment" class="item-info">
                 <div class="details">
-                  // <p>${items[itemId].</p>
-                </div>
-                <div class="instructions"> 
-                <h5>Instruction <i class="fas fa-note"></i></h5>
-                 <p> ${meal.strInstructions}</p>
-                 </div>
-                <a href=${meal.strSource} target="_blank">See more about this meal <i class="fas fa-arrow-right"></i></a>
-                </div>
+                  <p>${items[itemId].dcDescription}</p>
+                </div >
+                </div >
                 <h4 id="comments-header">Comments By previous Visitors</h4>
                 <div id="comments" class="comments"></div>
                 <div id="form-comment" class="form-comment">
@@ -76,23 +72,23 @@ const loadPopupCommentPage = (itemId, popupNode) => {
                 <button type="submit" class="btn btn-outline-secondary submit-btn">Comment</button>
                 </form>
                 </div>
-                </div>
-                `;
+                </div >
+  `;
       popupNode.innerHTML = popupHtml;
-      loadComments(meal.idMeal);
+      loadComments(itemId);
 
       const commentForm = document.querySelector('#comment-form');
       commentForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const commentObj = {
-          item_id: meal.idMeal,
+          item_id: e.target.id,
           username: commentForm.name.value,
           comment: commentForm.comment.value,
         };
         uploadComment(commentObj);
         commentForm.name.value = '';
         commentForm.comment.value = '';
-        setTimeout(() => { loadComments(meal.idMeal); }, 1000);
+        setTimeout(() => { loadComments(itemId); }, 1000);
       });
 
       const header = document.querySelector('header');

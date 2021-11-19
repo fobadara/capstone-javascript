@@ -13,12 +13,12 @@ const displayNumber = (number, root, items) => {
 };
 
 const display = (root, iterable, displayNum, count, numLi) => {
-  console.log(iterable)
+  console.log(iterable);
   const fragment = new DocumentFragment();
   for (let i = 0; i < iterable.length; i += 1) {
     if (root.id !== 'search') {
       const div = document.createElement('div');
-      div.id = `${i}`;
+      // div.id = `${number}`;
       div.className = 'card';
       const shadow = document.createElement('div');
       shadow.id = `shadow${i}`;
@@ -34,14 +34,20 @@ const display = (root, iterable, displayNum, count, numLi) => {
         h4.innerText = iterable[i].title[0];
       }
       const btn = document.createElement('button');
-      btn.id = `${i}`;
+      // number += 1;
+      // btn.id = `${i + 1}`;
+      // number += 1;
       btn.innerText = 'Comment';
       shadow.append(h4, btn);
       div.appendChild(shadow);
       div.style.background = `url("${iterable[i].edmPreview[0]}")no-repeat 100%`;
       fragment.appendChild(div);
-      // console.log(fragment.innerHTML);
-    }
+      // console.log(fragment.innerHTML);      
+    };
+    const divNode = document.querySelectorAll('.card');
+    divNode.forEach((currentItem, index) => {
+      currentItem.id = `${index + 1}`;
+    })
   }
   root.append(fragment)
   const cards = document.querySelectorAll('.card');
