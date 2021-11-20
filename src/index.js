@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
-import { likeMeal, mealLikes } from './likes.js';
+import { addLikeMeal, mealLikes } from './likes.js';
 import displayModal from './modal.js';
 import { mealsCounter } from './counter.js';
 
@@ -33,7 +33,7 @@ const displayMenuItems = async (mealCategory, menuTarget) => {
             likes.forEach((like) => {
               like.addEventListener('click', (e) => {
                 const mealLike = e.target.parentNode.children[2].textContent;
-                const mealLiked = likeMeal(e.target.parentNode.id);
+                const mealLiked = addLikeMeal(e.target.parentNode.id);
                 if (mealLiked) {
                   e.target.parentNode.children[2].textContent = `${Number(mealLike.match(/\d+/)[0]) + 1} Likes`;
                 }

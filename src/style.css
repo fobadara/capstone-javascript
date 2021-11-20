@@ -14,7 +14,8 @@ body {
 .content {
   width: 78%;
   margin: auto;
-  overflow-y: scroll;
+  height: 30em;
+  overflow-y: auto;
 }
 
 .active {
