@@ -6,6 +6,6 @@ const counterMeal = (data, mealCategory, menuTarget) => {
   return false;
 };
 
-const counterComment = (comments) => (comments.length ? comments.length : 0);
+const commentsCounter = (comments) => (comments.length ? comments.length : 0);
 
-export { counterMeal, counterComment };
+export { counterMeal, commentsCounter };
