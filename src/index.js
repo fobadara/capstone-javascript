@@ -2,12 +2,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 import { addLikeMeal, mealLikes } from './likes.js';
 import displayModal from './modal.js';
-import { mealsCounter } from './counter.js';
+import { counterMeal } from './counter.js';
 
 const navArea = document.querySelector('#navArea');
 const contentArea = document.querySelector('#contentArea');
 
-const displayMenuItems = async (mealCategory, menuTarget) => {
+const display = async (mealCategory, menuTarget) => {
   await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${mealCategory}`)
     .then((res) => res.json())
     .then((data) => {
@@ -49,7 +49,7 @@ const displayMenuItems = async (mealCategory, menuTarget) => {
           });
         }
       });
-      mealsCounter(data.meals, mealCategory, menuTarget);
+      counterMeal(data.meals, mealCategory, menuTarget);
     });
 };
 
@@ -62,12 +62,12 @@ navBtns.forEach((val) => {
       el.children[0].classList.remove('active');
     });
     e.target.classList.add('active');
-    displayMenuItems(e.target.textContent, e.target);
+    display(e.target.textContent, e.target);
   });
 });
 
 window.onload = () => {
   const navItems = document.querySelectorAll('.nav-item');
   navItems[0].children[0].classList.add('active');
-  displayMenuItems('Seafood', navItems[0].children[0]);
+  display('Seafood', navItems[0].children[0]);
 };

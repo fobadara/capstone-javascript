@@ -1,4 +1,4 @@
-const mealsCounter = (data, mealCategory, menuTarget) => {
+const counterMeal = (data, mealCategory, menuTarget) => {
   if (data.length && mealCategory) {
     menuTarget.textContent = `${mealCategory} (${data.length})`;
     return true;
@@ -6,6 +6,6 @@ const mealsCounter = (data, mealCategory, menuTarget) => {
   return false;
 };
 
-const commentsCounter = (comments) => (comments.length ? comments.length : 0);
+const counterComment = (comments) => (comments.length ? comments.length : 0);
 
-export { mealsCounter, commentsCounter };
+export { counterMeal, counterComment };
