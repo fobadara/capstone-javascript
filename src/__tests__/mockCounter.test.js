@@ -1,5 +1,5 @@
 import counterDummy from '../__mocks__/mockCounter.js';
-import { commentsCounter, mealsCounter } from '../counter.js';
+import { commentsCounter, counterMeal } from '../counter.js';
 
 describe('Count items from mock', () => {
   const arr = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6'];
@@ -30,10 +30,10 @@ describe('Count meals', () => {
   const menuTarget = { textContent: 'Beef' };
 
   it('number of comments', () => {
-    expect(mealsCounter(arr, category, menuTarget)).toBe(true);
+    expect(counterMeal(arr, category, menuTarget)).toBe(true);
   });
 
   it('no comments', () => {
-    expect(mealsCounter(emptyarr, 'test', menuTarget)).toBe(false);
+    expect(counterMeal(emptyarr, 'test', menuTarget)).toBe(false);
   });
 });
