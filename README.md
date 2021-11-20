@@ -2,7 +2,7 @@
 
 ## Description 🏗️
 
-In this project we developed a restuarant application using two API's. One API is to retrieve data from a remote server and another one is to record the different user interactions (likes, comments and reservations).
+In this project we developed a restuarant application using two API's. Themealdb API was used to retrieve data from a remote server and the involvement API which was used to record the different user interactions (likes, comments and reservations).
 
 **Built With 🔨**
 
@@ -24,8 +24,9 @@ In this project we developed a restuarant application using two API's. One API i
 To get a local copy up and running follow these simple example steps.
 
 > clone the app by running this command
-
-git clone and paste a link in your command prompt
+```bash
+git clone https://github.com/fobadara/capstone-javascript.git
+```
 
 **Prerequisites 📜**
 
@@ -81,8 +82,6 @@ Feel free to check the issues page.
 **Show your support 💪**
 
 Give a ⭐️ if you like this project!
-
-**Acknowledgments ![IMG](http://www.sherv.net/cm/emoticons/hello/hat-tip-smiley-emoticon.gif)**
 
 Hat tip to anyone whose code was used
 
